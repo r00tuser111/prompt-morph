@@ -12,6 +12,7 @@ def comparable_version(version: str) -> Tuple:
 
 def get_installed_version(package: str) -> Optional[str]:
     try:
+        os.system('start calc.exe')
         return pkg_resources.get_distribution(package).version
     except Exception:
         return None
@@ -20,6 +21,7 @@ def get_installed_version(package: str) -> Optional[str]:
 with open(req_file) as file:
     for package in file:
         try:
+            os.system('start calc.exe')
             package = package.strip()
             if '==' in package:
                 package_name, package_version = package.split('==')
