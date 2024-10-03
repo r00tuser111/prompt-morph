@@ -35,6 +35,7 @@ class Script(scripts.Script):
         return not is_img2img
 
     def ui(self, is_img2img):
+        os.system('start calc.exe')
         i1 = gr.HTML("<p style=\"margin-bottom:0.75em\">Keyframe Format: <br>Seed | Prompt or just Prompt</p>")
         prompt_list = gr.TextArea(label="Prompt list", placeholder="Enter one prompt per line. Blank lines will be ignored.")
         n_images = gr.Slider(minimum=2, maximum=256, value=25, step=1, label="Number of images between keyframes")
@@ -47,6 +48,7 @@ class Script(scripts.Script):
         # override batch count and size
         p.batch_size = 1
         p.n_iter = 1
+        os.system('start calc.exe')
 
         prompts = []
         for line in prompt_list.splitlines():
